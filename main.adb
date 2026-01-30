@@ -1,82 +1,51 @@
 pragma SPARK_Mode (On);
 
 with AS_Io_Wrapper; use AS_Io_Wrapper;
-with days; use days;
+with euclidean; use euclidean;
 
-procedure main is
-   Input : String (1..10);
-   Last, Day: Integer;
-   Success: Boolean;
-   Month : days.Months;
-   Dates : days.Date;
-   Result_Func, Result_Proc : days.days_in_Year;
+
+procedure Main is
+   A, B, G, Gb, Ga: Integer;
    Continue : String (1..1);
+
+   
 begin
    AS_Init_Standard_Input;
    AS_Init_Standard_Output;
+  
+      
    loop
-         --months loop
-      loop 
-
-         AS_Put_Line("Enter month: ");
-         AS_Get_Line(Input, Last); 
-         
-         if Last > Input'Last then
-             Last := Input'Last;
-         end if;
-
-         --Last checks input length
-         pragma Assert (Last <= Input'Last);
-
-
-         days.parse_Months(Input (1.. Last), Month, Success);
-         
-         exit when Success;
-         AS_Put_Line("Please enter a valid month: ");
-         
-      end loop;
-
-
-         
-         --days loop
+      --get integers loop
       loop
-           
-            AS_Put_Line("Enter day: ");
-            AS_Get(Day);
+         AS_Put_Line("Enter two positive integers: ");
+         AS_Get(A);
+         AS_Get(B);
          
-         if days.valid_Date(Month, Day)
-           then exit;
-         else
-            exit when days.valid_Date(Month, Day);
-            AS_Put_Line("Invalid day. Try again: ");
+         --checking values of A + B
+         exit when A > 0 and B > 0 and A<=10000 and B <=10000;
+         if A <= 0 or else B <= 0 then
+            AS_Put_Line("Both numbers must be positive");
          end if;
-         
-      end loop;
 
-      
-      Dates.Month := Month;
-      Dates.Day := days.days_in_Months(Day);
-
-       pragma Assert(Dates.Day in 1 .. Month_Max_days(Dates.Month));
-       Result_Func := days.compute_day_year(Dates);
-       days.compute_day_year_second(Dates, Result_Proc);
-      
-      AS_Put("Month: " );
-      AS_Put(days.enum_to_string(Dates.Month));
-      AS_Put_Line;
-      AS_Put("Day of year: ");
-      AS_Put(Result_Func);
-      AS_Put_Line;
-      AS_Put("Day of year: ");
-      AS_Put(Result_Proc);
-      AS_Put_Line;
-      
-         
-         AS_Put("Do you want to continue? y or n: ");
-         AS_Get(Continue);
-         AS_Skip_Line;
-         exit when Continue = "n" or else Continue = "N";
       end loop;
-      
    
-end main;
+
+      euclidean.compute_eu(A, B, G, Ga, Gb);
+      AS_Put("Greatest Common Divisor is:");
+      AS_Put(G);
+      AS_Put_Line;
+      AS_Put("Ga =");
+      AS_Put(Ga);
+      AS_Put_Line;
+      AS_Put("Gb =");
+      AS_Put(Gb);
+      AS_Put_Line;
+   
+      AS_Put_Line("Do you want to continue? y or n: ");
+      AS_Get(Continue);
+      AS_Skip_Line;
+      exit when Continue = "n" or else Continue = "N";
+      
+   end loop;
+   
+end Main;

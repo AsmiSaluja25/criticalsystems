@@ -100,7 +100,7 @@ package body AS_IO_Wrapper is
       Converted_Result  : Integer_Result;
       Length_Input : Natural;
       Length_Input_Used : Positive;	
-      Blank_String : String(1 .. Length_String) := (others => ' ');
+      Blank_String : constant String(1 .. Length_String) := (others => ' ');
    begin
       loop
          SPARK.Text_IO.Get_Line(Input_By_User,Length_Input);

@@ -40,7 +40,7 @@ package ada_main is
    pragma Export (C, main, "main");
 
    type Version_32 is mod 2 ** 32;
-   u00001 : constant Version_32 := 16#f315f770#;
+   u00001 : constant Version_32 := 16#988ccf19#;
    pragma Export (C, u00001, "mainB");
    u00002 : constant Version_32 := 16#2e11c0b1#;
    pragma Export (C, u00002, "system__standard_libraryB");
@@ -322,10 +322,10 @@ package ada_main is
    pragma Export (C, u00140, "system__val_llliS");
    u00141 : constant Version_32 := 16#f82486d6#;
    pragma Export (C, u00141, "system__val_llluS");
-   u00142 : constant Version_32 := 16#8c65b79c#;
-   pragma Export (C, u00142, "daysB");
-   u00143 : constant Version_32 := 16#0da012af#;
-   pragma Export (C, u00143, "daysS");
+   u00142 : constant Version_32 := 16#8489fc66#;
+   pragma Export (C, u00142, "euclideanB");
+   u00143 : constant Version_32 := 16#e38789d3#;
+   pragma Export (C, u00143, "euclideanS");
    u00144 : constant Version_32 := 16#eca5ecae#;
    pragma Export (C, u00144, "system__memoryB");
    u00145 : constant Version_32 := 16#76873720#;
@@ -467,8 +467,6 @@ package ada_main is
    --  ada.text_io%b
    --  ada.text_io.generic_aux%s
    --  ada.text_io.generic_aux%b
-   --  days%s
-   --  days%b
    --  spark%s
    --  spark.text_io%s
    --  spark.text_io%b
@@ -476,6 +474,8 @@ package ada_main is
    --  spark.text_io.integer_io%b
    --  as_io_wrapper%s
    --  as_io_wrapper%b
+   --  euclidean%s
+   --  euclidean%b
    --  main%b
    --  END ELABORATION ORDER
 
