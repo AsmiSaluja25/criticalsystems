@@ -31,10 +31,10 @@ package body ada_main is
    E119 : Short_Integer; pragma Import (Ada, E119, "ada__finalization_E");
    E118 : Short_Integer; pragma Import (Ada, E118, "system__file_io_E");
    E108 : Short_Integer; pragma Import (Ada, E108, "ada__text_io_E");
+   E143 : Short_Integer; pragma Import (Ada, E143, "days_E");
    E127 : Short_Integer; pragma Import (Ada, E127, "spark__text_io_E");
    E129 : Short_Integer; pragma Import (Ada, E129, "spark__text_io__integer_io_E");
    E106 : Short_Integer; pragma Import (Ada, E106, "as_io_wrapper_E");
-   E143 : Short_Integer; pragma Import (Ada, E143, "ventilator_E");
 
    Sec_Default_Sized_Stacks : array (1 .. 1) of aliased System.Secondary_Stack.SS_Stack (System.Parameters.Runtime_Default_Sec_Stack_Size);
 
@@ -212,12 +212,12 @@ package body ada_main is
       Ada.Text_Io'Elab_Spec;
       Ada.Text_Io'Elab_Body;
       E108 := E108 + 1;
+      E143 := E143 + 1;
       SPARK.TEXT_IO'ELAB_SPEC;
       SPARK.TEXT_IO'ELAB_BODY;
       E127 := E127 + 1;
       E129 := E129 + 1;
       E106 := E106 + 1;
-      E143 := E143 + 1;
    end adainit;
 
    procedure Ada_Main_Program;
@@ -255,14 +255,14 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   C:\Users\carag\Desktop\cw2\cw2\spark.o
-   --   C:\Users\carag\Desktop\cw2\cw2\spark-text_io.o
-   --   C:\Users\carag\Desktop\cw2\cw2\spark-text_io-integer_io.o
-   --   C:\Users\carag\Desktop\cw2\cw2\as_io_wrapper.o
-   --   C:\Users\carag\Desktop\cw2\cw2\ventilator.o
-   --   C:\Users\carag\Desktop\cw2\cw2\main.o
-   --   -LC:\Users\carag\Desktop\cw2\cw2\
-   --   -LC:\Users\carag\Desktop\cw2\cw2\
+   --   C:\Users\carag\Downloads\2014079\2014079\Question1\obj\days.o
+   --   C:\Users\carag\Downloads\2014079\2014079\Question1\obj\spark.o
+   --   C:\Users\carag\Downloads\2014079\2014079\Question1\obj\spark-text_io.o
+   --   C:\Users\carag\Downloads\2014079\2014079\Question1\obj\spark-text_io-integer_io.o
+   --   C:\Users\carag\Downloads\2014079\2014079\Question1\obj\as_io_wrapper.o
+   --   C:\Users\carag\Downloads\2014079\2014079\Question1\obj\main.o
+   --   -LC:\Users\carag\Downloads\2014079\2014079\Question1\obj\
+   --   -LC:\Users\carag\Downloads\2014079\2014079\Question1\obj\
    --   -LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
    --   -static
    --   -lgnat
