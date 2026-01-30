@@ -1,4 +1,4 @@
-# criticalsystems
+# Criticalsystems
 
 # SPARK Ada Coursework – Formally Verified Programs
 
